@@ -30,11 +30,18 @@ export default function Footer({ onNavigate }) {
             onClick={(e) => handleNavClick(e, '#home')}
             aria-label="Solitaire InfoTech home"
           >
-            <img
-              className="brand-logo"
-              src="/img/logo-transparent.png"
-              alt="Nexavrios | Solitaire InfoTech"
-            />
+            <picture>
+              <source srcSet="/img/logo-transparent.webp" type="image/webp" />
+              <img
+                className="brand-logo"
+                src="/img/logo-transparent.png"
+                alt="Nexavrios | Solitaire InfoTech"
+                width="72"
+                height="72"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
           </a>
           <p className="footer-tagline">
             Securing modern digital enterprises through intelligence-led cybersecurity, cloud protection, and reliable technology solutions.

@@ -7,10 +7,12 @@ export default function Hero() {
       <video
         className="hero-bg-video"
         src="/assets/hero-background.mp4"
+        poster="/assets/hero-poster.webp"
         autoPlay
         muted
         loop
         playsInline
+        preload="auto"
         aria-hidden="true"
       />
       <div className="hero-bg-overlay" aria-hidden="true" />

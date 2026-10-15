@@ -6,18 +6,32 @@ export default function AboutSection() {
     <section className="about section-shell" id="about" aria-labelledby="about-heading">
       <div className="about-media">
         <div className="photo-stack photo-top">
-          <img
-            className="about-stack-img"
-            src="/assets/about-top.jpg"
-            alt="Cyber Security Network Infrastructure"
-          />
+          <picture>
+            <source srcSet="/assets/about-top.webp" type="image/webp" />
+            <img
+              className="about-stack-img"
+              src="/assets/about-top.jpg"
+              alt="Cyber Security Network Infrastructure"
+              width="600"
+              height="245"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
         </div>
         <div className="photo-stack photo-bottom">
-          <img
-            className="about-stack-img"
-            src="/assets/about-bottom.jpg"
-            alt="Encrypted Shield and Cyber Cloud Protection"
-          />
+          <picture>
+            <source srcSet="/assets/about-bottom.webp" type="image/webp" />
+            <img
+              className="about-stack-img"
+              src="/assets/about-bottom.jpg"
+              alt="Encrypted Shield and Cyber Cloud Protection"
+              width="600"
+              height="245"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
         </div>
         <aside className="expertise-card" aria-label="Core expertise">
           <div className="expertise-card-header">CORE EXPERTISE</div>

@@ -380,11 +380,18 @@ export default function ContactPage({ onNavigate }) {
                   />
                 ) : (
                   <>
-                    <img
-                      src="/assets/contact-map.jpg"
-                      alt="Global Security Operations Map Hologram"
-                      className="contact-map-img"
-                    />
+                    <picture>
+                      <source srcSet="/assets/contact-map.webp" type="image/webp" />
+                      <img
+                        src="/assets/contact-map.jpg"
+                        alt="Global Security Operations Map Hologram"
+                        className="contact-map-img"
+                        width="1200"
+                        height="670"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </picture>
                     <div className="map-overlay-badge">
                       <Sparkles size={16} /> Global Threat Network
                     </div>

@@ -27,5 +27,7 @@ pnpm-debug.log*
 .DS_Store
 
 # Temporary & large media recordings
+/Recording*.mp4
 *.mp4
+!public/assets/*.mp4
 .codex/

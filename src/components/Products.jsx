@@ -12,7 +12,7 @@ export default function Products() {
       </p>
 
       <div className="products-list">
-        {products.map(({ id, name, tagline, image, accent, badge, description, tags }, idx) => (
+        {products.map(({ id, name, tagline, image, imageWebp, accent, badge, description, tags }, idx) => (
           <article
             key={id}
             className={`product-card ${accent} ${idx % 2 === 1 ? 'product-card--reversed' : ''}`}
@@ -20,12 +20,18 @@ export default function Products() {
           >
             <div className="product-image-wrap">
               <span className={`product-badge product-badge--${accent}`}>{badge}</span>
-              <img
-                className="product-img"
-                src={image}
-                alt={`${name} — ${tagline}`}
-                loading="lazy"
-              />
+              <picture>
+                <source srcSet={imageWebp || image.replace(/\.(jpg|jpeg|png)$/, '.webp')} type="image/webp" />
+                <img
+                  className="product-img"
+                  src={image}
+                  alt={`${name} — ${tagline}`}
+                  width="420"
+                  height="420"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
               <div className="product-img-glow" aria-hidden="true" />
             </div>
 

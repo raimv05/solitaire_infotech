@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import Header from './components/Header.jsx';
 import Hero from './components/Hero.jsx';
 import Workflow from './components/Workflow.jsx';
@@ -6,9 +6,10 @@ import Services from './components/Services.jsx';
 import Products from './components/Products.jsx';
 import AboutSection from './components/AboutSection.jsx';
 import OfficesSection from './components/OfficesSection.jsx';
-import ContactPage from './components/ContactPage.jsx';
 import Footer from './components/Footer.jsx';
 import ScrollTopButton from './components/ScrollTopButton.jsx';
+
+const ContactPage = lazy(() => import('./components/ContactPage.jsx'));
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState(() => {
@@ -52,7 +53,15 @@ export default function App() {
       <Header currentPage={currentPage} onNavigate={handleNavigate} />
       <main>
         {currentPage === 'contact' ? (
-          <ContactPage onNavigate={handleNavigate} />
+          <Suspense
+            fallback={
+              <div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <span style={{ color: 'var(--cyan)', fontWeight: 600 }}>Loading Contact...</span>
+              </div>
+            }
+          >
+            <ContactPage onNavigate={handleNavigate} />
+          </Suspense>
         ) : (
           <>
             <Hero />

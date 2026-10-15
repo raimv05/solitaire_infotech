@@ -28,6 +28,7 @@ export const workflowSteps = [
     description: 'Map goals, risks, and priorities before delivery begins.',
     icon: Lightbulb,
     image: '/assets/workflow-plan.jpg',
+    imageWebp: '/assets/workflow-plan.webp',
     motion: 'pulse',
   },
   {
@@ -35,6 +36,7 @@ export const workflowSteps = [
     description: 'Build polished, secure systems around the agreed plan.',
     icon: Snowflake,
     image: '/assets/workflow-design.jpg',
+    imageWebp: '/assets/workflow-design.webp',
     motion: 'spin',
   },
   {
@@ -42,6 +44,7 @@ export const workflowSteps = [
     description: 'Validate, refine, and hand over a launch-ready solution.',
     icon: Send,
     image: '/assets/workflow-deliver.jpg',
+    imageWebp: '/assets/workflow-deliver.webp',
     motion: 'float',
   },
 ];
@@ -110,6 +113,7 @@ export const products = [
     name: 'NexaERP',
     tagline: 'Enterprise Resource Planning',
     image: '/img/erp.jpg',
+    imageWebp: '/img/erp.webp',
     accent: 'violet',
     badge: 'Enterprise',
     description:
@@ -121,6 +125,7 @@ export const products = [
     name: 'NexShield AI',
     tagline: 'Smart Cybersecurity',
     image: '/img/img2.jpeg',
+    imageWebp: '/img/img2.webp',
     accent: 'cyan',
     badge: 'Cybersecurity',
     description:
@@ -132,6 +137,7 @@ export const products = [
     name: 'NexaCampus AI',
     tagline: 'Smart Education Management',
     image: '/img/img3.jpeg',
+    imageWebp: '/img/img3.webp',
     accent: 'blue',
     badge: 'EdTech',
     description:

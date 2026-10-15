@@ -17,11 +17,18 @@ export default function Header({ currentPage, onNavigate }) {
         onClick={(e) => handleNavClick(e, '#home')}
         aria-label="Solitaire InfoTech home"
       >
-        <img
-          className="brand-logo"
-          src="/img/logo-transparent.png"
-          alt="Nexavrios | Solitaire InfoTech"
-        />
+        <picture>
+          <source srcSet="/img/logo-transparent.webp" type="image/webp" />
+          <img
+            className="brand-logo"
+            src="/img/logo-transparent.png"
+            alt="Nexavrios | Solitaire InfoTech"
+            width="72"
+            height="72"
+            decoding="async"
+            fetchPriority="high"
+          />
+        </picture>
       </a>
 
       <nav className="primary-nav" aria-label="Primary navigation">
