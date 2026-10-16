@@ -85,22 +85,22 @@ export default function Footer({ onNavigate }) {
           <ul className="footer-links">
             <li>
               <a href="#services" onClick={(e) => handleNavClick(e, '#services')}>
+                Global Talent Acquisition
+              </a>
+            </li>
+            <li>
+              <a href="#services" onClick={(e) => handleNavClick(e, '#services')}>
+                North America & UK/EU Hiring
+              </a>
+            </li>
+            <li>
+              <a href="#services" onClick={(e) => handleNavClick(e, '#services')}>
                 Managed Security Services
               </a>
             </li>
             <li>
               <a href="#services" onClick={(e) => handleNavClick(e, '#services')}>
-                Cloud Security & Governance
-              </a>
-            </li>
-            <li>
-              <a href="#services" onClick={(e) => handleNavClick(e, '#services')}>
-                Cyber Threat Intelligence
-              </a>
-            </li>
-            <li>
-              <a href="#services" onClick={(e) => handleNavClick(e, '#services')}>
-                Business Intelligence & Data
+                Cloud Security & Infrastructure
               </a>
             </li>
           </ul>

@@ -15,6 +15,7 @@ export default function App() {
   const [currentPage, setCurrentPage] = useState(() => {
     return window.location.hash === '#contact' ? 'contact' : 'home';
   });
+  const [inquiryService, setInquiryService] = useState('');
 
   useEffect(() => {
     const handleHashChange = () => {
@@ -28,7 +29,10 @@ export default function App() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
-  const handleNavigate = (href) => {
+  const handleNavigate = (href, service = '') => {
+    if (service) {
+      setInquiryService(service);
+    }
     if (href === '#contact') {
       setCurrentPage('contact');
       window.location.hash = 'contact';
@@ -60,13 +64,13 @@ export default function App() {
               </div>
             }
           >
-            <ContactPage onNavigate={handleNavigate} />
+            <ContactPage onNavigate={handleNavigate} initialService={inquiryService} />
           </Suspense>
         ) : (
           <>
             <Hero />
             <Workflow />
-            <Services />
+            <Services onNavigate={handleNavigate} />
             <Products />
             <AboutSection />
             <OfficesSection />

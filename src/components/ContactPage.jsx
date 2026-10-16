@@ -20,20 +20,36 @@ import {
 } from 'lucide-react';
 import { contactInfo, officeLocations } from '../data/siteContent.js';
 
-export default function ContactPage({ onNavigate }) {
+export default function ContactPage({ onNavigate, initialService }) {
   const [activeMapTab, setActiveMapTab] = useState('live');
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
     phone: '',
     company: '',
-    service: 'Managed Security Services',
+    service: initialService || 'Global Talent Acquisition',
     message: '',
   });
 
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [activeFaq, setActiveFaq] = useState(null);
+
+  useEffect(() => {
+    if (initialService) {
+      setFormData((prev) => ({ ...prev, service: initialService }));
+      return;
+    }
+    try {
+      const savedService = sessionStorage.getItem('preferred_service');
+      if (savedService) {
+        setFormData((prev) => ({ ...prev, service: savedService }));
+        sessionStorage.removeItem('preferred_service');
+      }
+    } catch {
+      // ignore
+    }
+  }, [initialService]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -317,13 +333,22 @@ export default function ContactPage({ onNavigate }) {
                       value={formData.service}
                       onChange={handleInputChange}
                     >
-                      <option value="Managed Security Services">Managed Security Services</option>
-                      <option value="Cloud Security">Cloud Security & Governance</option>
-                      <option value="Cyber Threat Intelligence">Cyber Threat Intelligence</option>
-                      <option value="Security Training & Awareness">Security Training & Awareness</option>
-                      <option value="Cloud Computing">Cloud Computing Infrastructure</option>
-                      <option value="Business Intelligence">Business Intelligence & Data</option>
-                      <option value="General Consultation">General Security Consultation</option>
+                      <optgroup label="Global Talent Acquisition">
+                        <option value="Global Talent Acquisition">Global Talent Acquisition</option>
+                        <option value="North America Talent Acquisition">North America Talent Acquisition (US & Canada)</option>
+                        <option value="UK & Europe Recruitment">UK & Europe Recruitment</option>
+                        <option value="India Talent Acquisition">India Talent Acquisition (Pan-India)</option>
+                        <option value="Global Workforce Solutions">Global Workforce Solutions (Executive & Volume)</option>
+                      </optgroup>
+                      <optgroup label="Cyber Security & Technology">
+                        <option value="Managed Security Services">Managed Security Services</option>
+                        <option value="Cloud Security">Cloud Security & Governance</option>
+                        <option value="Cyber Threat Intelligence">Cyber Threat Intelligence</option>
+                        <option value="Security Training & Awareness">Security Training & Awareness</option>
+                        <option value="Cloud Computing">Cloud Computing Infrastructure</option>
+                        <option value="Business Intelligence & Data Visualization">Business Intelligence & Data</option>
+                      </optgroup>
+                      <option value="General Consultation">General Consultation</option>
                     </select>
                   </div>
                 </div>

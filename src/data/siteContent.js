@@ -1,9 +1,13 @@
 import {
   AlertTriangle,
+  Award,
   BarChart3,
   BriefcaseBusiness,
+  Building2,
   Cloud,
   CloudCog,
+  Compass,
+  Globe,
   Lightbulb,
   Code2,
   Database,
@@ -12,6 +16,7 @@ import {
   Send,
   ShieldCheck,
   Snowflake,
+  Users,
 } from 'lucide-react';
 
 export const navItems = [
@@ -49,56 +54,170 @@ export const workflowSteps = [
   },
 ];
 
-export const services = [
+export const talentServices = [
   {
+    id: 'global-talent',
+    title: 'Global Talent Acquisition',
+    subtitle: 'Cross-Border Excellence',
+    description:
+      'Connecting businesses with exceptional talent across international markets.',
+    badge: 'Worldwide',
+    tags: ['International Markets', 'Cross-Border Sourcing', 'Global Mobility'],
+    icon: Globe,
+    tone: 'cyan',
+    motion: 'spin',
+  },
+  {
+    id: 'north-america-talent',
+    title: 'North America Talent Acquisition',
+    subtitle: 'United States & Canada',
+    description:
+      'United States & Canada strategic staffing and specialized talent acquisition across enterprise & tech verticals.',
+    badge: 'USA & Canada',
+    tags: ['United States & Canada', 'Tech Hiring', 'Contract & Direct Hire'],
+    icon: Building2,
+    tone: 'blue',
+    motion: 'pulse',
+  },
+  {
+    id: 'uk-europe-talent',
+    title: 'UK & Europe Recruitment',
+    subtitle: 'United Kingdom & European Markets',
+    description:
+      'United Kingdom & European Markets precision recruitment connecting high-impact professionals with industry leaders.',
+    badge: 'UK & Europe',
+    tags: ['United Kingdom', 'European Markets', 'Specialist Staffing'],
+    icon: Compass,
+    tone: 'violet',
+    motion: 'float',
+  },
+  {
+    id: 'india-talent',
+    title: 'India Talent Acquisition',
+    subtitle: 'Domestic & Pan-India Hiring',
+    description:
+      'Domestic & Pan-India Hiring delivering top-tier engineering, leadership, and operational talent at scale.',
+    badge: 'Domestic & Pan-India',
+    tags: ['Pan-India Network', 'Rapid Deployment', 'Lateral & Tech Staffing'],
+    icon: Users,
+    tone: 'amber',
+    motion: 'beacon',
+  },
+  {
+    id: 'global-workforce',
+    title: 'Global Workforce Solutions',
+    subtitle: 'Executive, Lateral & Volume',
+    description:
+      'Executive Search, Lateral & Volume Hiring tailored to meet the dynamic demands of growing international enterprises.',
+    badge: 'Full-Lifecycle',
+    tags: ['Executive Search', 'Lateral Hiring', 'Volume Hiring'],
+    icon: Award,
+    tone: 'magenta',
+    motion: 'wave',
+  },
+];
+
+export const cyberServices = [
+  {
+    id: 'managed-security',
     title: 'Managed Security Services',
+    subtitle: '24/7 Security Operations',
     description:
       'Stay ahead of cyber threats with monitoring, incident response, and practical security operations support.',
+    badge: '24/7 SecOps',
+    tags: ['Threat Monitoring', 'Incident Response', 'SecOps Support'],
     icon: ShieldCheck,
     tone: 'cyan',
     motion: 'pulse',
   },
   {
+    id: 'cloud-security',
     title: 'Cloud Security',
+    subtitle: 'Governance & Hardening',
     description:
       'Secure cloud infrastructure from initial setup to ongoing governance, posture reviews, and hardening.',
+    badge: 'Cloud Defense',
+    tags: ['Cloud Governance', 'Posture Review', 'Hardening'],
     icon: CloudCog,
     tone: 'blue',
     motion: 'spin',
   },
   {
+    id: 'cyber-threat-intelligence',
     title: 'Cyber Threat Intelligence',
+    subtitle: 'Actionable Signals',
     description:
       'Track evolving risks and translate threat signals into timely, business-aware security decisions.',
+    badge: 'Threat Intel',
+    tags: ['Risk Analytics', 'Threat Intel', 'Signal Analysis'],
     icon: RadioTower,
     tone: 'violet',
     motion: 'radar',
   },
   {
+    id: 'security-training',
     title: 'Security Training & Awareness',
+    subtitle: 'Workforce Enablement',
     description:
       'Equip teams to recognize suspicious activity, avoid common attack paths, and respond with confidence.',
+    badge: 'Team Training',
+    tags: ['Phishing Awareness', 'Defensive Posture', 'Staff Enablement'],
     icon: AlertTriangle,
     tone: 'amber',
     motion: 'beacon',
   },
   {
+    id: 'cloud-computing',
     title: 'Cloud Computing',
+    subtitle: 'Modern Infrastructure',
     description:
       'Modernize data workflows with reliable cloud platforms, automation, and managed infrastructure.',
+    badge: 'Modern Cloud',
+    tags: ['Cloud Automation', 'Data Workflows', 'Infrastructure'],
     icon: Cloud,
     tone: 'sky',
     motion: 'float',
   },
   {
+    id: 'business-intelligence',
     title: 'Business Intelligence & Data Visualization',
+    subtitle: 'Analytics & Dashboards',
     description:
       'Turn operational data into readable dashboards, reports, and insights for faster decisions.',
+    badge: 'Data Insights',
+    tags: ['Custom Dashboards', 'Operational BI', 'Visual Reporting'],
     icon: BarChart3,
     tone: 'magenta',
     motion: 'wave',
   },
 ];
+
+export const serviceCategories = [
+  {
+    id: 'talent',
+    label: 'Global Talent Acquisition',
+    shortLabel: 'Talent Acquisition',
+    count: 5,
+    eyebrow: 'OUR SERVICES',
+    heading: 'Global Talent Acquisition',
+    subheading:
+      'Connecting businesses with exceptional talent across international markets — from specialized regional recruitment to executive search and high-volume hiring.',
+    items: talentServices,
+  },
+  {
+    id: 'cyber',
+    label: 'Cybersecurity & IT Solutions',
+    shortLabel: 'Cyber & IT Solutions',
+    count: 6,
+    eyebrow: 'SECURITY & INFRASTRUCTURE',
+    heading: 'Cyber Security Solutions',
+    subheading:
+      'Safeguarding your digital future with resilient cybersecurity defenses, cloud governance, and intelligence-driven operations.',
+    items: cyberServices,
+  },
+];
+
+export const services = [...talentServices, ...cyberServices];
 
 export const capabilities = [
   { label: 'Networking & Infrastructure', icon: Network },
