@@ -93,7 +93,11 @@ export default function Services({ onNavigate }) {
         {currentCategory.items.map(
           ({ title, subtitle, description, badge, tags, icon: Icon, tone, motion }) => (
             <article className={`service-card ${tone}`} key={title} tabIndex="0">
-              {badge && <span className="service-card-badge">{badge}</span>}
+              {badge && (
+                <div className="service-card-top">
+                  <span className="service-card-badge">{badge}</span>
+                </div>
+              )}
               <div className={`service-icon motion-${motion}`}>
                 <div className="service-icon-glow" aria-hidden="true" />
                 <div className="service-icon-ring" aria-hidden="true" />
