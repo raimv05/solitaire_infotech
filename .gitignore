@@ -31,3 +31,5 @@ pnpm-debug.log*
 *.mp4
 !public/assets/*.mp4
 .codex/
+*.zip
+

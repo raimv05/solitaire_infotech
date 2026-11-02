@@ -10,10 +10,13 @@ import Footer from './components/Footer.jsx';
 import ScrollTopButton from './components/ScrollTopButton.jsx';
 
 const ContactPage = lazy(() => import('./components/ContactPage.jsx'));
+const TestPage = lazy(() => import('./components/TestPage.jsx'));
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState(() => {
-    return window.location.hash === '#contact' ? 'contact' : 'home';
+    if (window.location.hash === '#contact') return 'contact';
+    if (window.location.hash === '#test') return 'test';
+    return 'home';
   });
   const [inquiryService, setInquiryService] = useState('');
 
@@ -21,6 +24,8 @@ export default function App() {
     const handleHashChange = () => {
       if (window.location.hash === '#contact') {
         setCurrentPage('contact');
+      } else if (window.location.hash === '#test') {
+        setCurrentPage('test');
       } else {
         setCurrentPage('home');
       }
@@ -36,6 +41,10 @@ export default function App() {
     if (href === '#contact') {
       setCurrentPage('contact');
       window.location.hash = 'contact';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (href === '#test') {
+      setCurrentPage('test');
+      window.location.hash = 'test';
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       setCurrentPage('home');
@@ -65,6 +74,16 @@ export default function App() {
             }
           >
             <ContactPage onNavigate={handleNavigate} initialService={inquiryService} />
+          </Suspense>
+        ) : currentPage === 'test' ? (
+          <Suspense
+            fallback={
+              <div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <span style={{ color: 'var(--cyan)', fontWeight: 600 }}>Loading Assessment Portal...</span>
+              </div>
+            }
+          >
+            <TestPage onNavigate={handleNavigate} />
           </Suspense>
         ) : (
           <>

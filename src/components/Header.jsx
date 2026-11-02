@@ -33,16 +33,23 @@ export default function Header({ currentPage, onNavigate }) {
 
       <nav className="primary-nav" aria-label="Primary navigation">
         {navItems.map((item) => {
-          const isActive =
+          const isCurrentActive =
             (item.href === '#contact' && currentPage === 'contact') ||
-            (item.href !== '#contact' && currentPage === 'home');
+            (item.href === '#test' && currentPage === 'test') ||
+            (item.href === '#home' && currentPage === 'home');
+
+          const isTestLink = item.href === '#test';
+
           return (
             <a
               key={item.href}
               href={item.href}
-              className={item.href === '#contact' && currentPage === 'contact' ? 'nav-active' : ''}
+              className={`nav-link ${isCurrentActive ? 'nav-active' : ''} ${
+                isTestLink ? 'nav-test-badge' : ''
+              }`}
               onClick={(e) => handleNavClick(e, item.href)}
             >
+              {isTestLink && <span className="nav-pulse-dot" aria-hidden="true" />}
               {item.label}
             </a>
           );

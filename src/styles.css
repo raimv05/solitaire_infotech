@@ -2815,3 +2815,52 @@ p {
   }
 }
 
+/* ==========================================================================
+   Header Nav Test Badge & Active indicator
+   ========================================================================== */
+.primary-nav .nav-active {
+  color: var(--cyan) !important;
+  text-shadow: 0 0 10px rgba(86, 199, 232, 0.4);
+}
+
+.primary-nav .nav-test-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(86, 199, 232, 0.12);
+  border: 1px solid rgba(86, 199, 232, 0.35);
+  color: var(--cyan) !important;
+  font-weight: 800 !important;
+  transition: all 0.2s ease;
+}
+
+.primary-nav .nav-test-badge:hover {
+  background: rgba(86, 199, 232, 0.22);
+  border-color: var(--cyan);
+  box-shadow: 0 0 16px rgba(86, 199, 232, 0.4);
+  transform: translateY(-1px);
+}
+
+.primary-nav .nav-test-badge.nav-active {
+  background: linear-gradient(135deg, rgba(86, 199, 232, 0.25), rgba(210, 28, 255, 0.25));
+  border-color: var(--cyan);
+  box-shadow: 0 0 20px rgba(86, 199, 232, 0.5);
+}
+
+.nav-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  animation: navPulse 1.8s infinite;
+}
+
+@keyframes navPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.25); }
+}
+
+

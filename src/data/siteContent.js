@@ -24,6 +24,7 @@ export const navItems = [
   { label: 'About Us', href: '#about' },
   { label: 'Services', href: '#services' },
   { label: 'Products', href: '#products' },
+  { label: 'Take a Test', href: '#test' },
   { label: 'Contact Us', href: '#contact' },
 ];
 
